@@ -199,7 +199,9 @@
             position: relative;
             padding: clamp(100px, 15vh, 140px) var(--container-padding) clamp(40px, 8vh, 80px);
             background: 
-                linear-gradient(135deg, rgba(238, 242, 255, 0.95) 0%, rgba(250, 245, 255, 0.9) 100%),
+                linear-gradient(135deg, 
+        rgba(238, 242, 255, 0.8) 0%,    /* 80% opacity - start */
+        rgba(250, 245, 255, 0.8) 100%   /* 80% opacity - end */),
                 url('https://i.ibb.co/4g0V2rsn/hero-bg.jpg') center/cover no-repeat;
             background-attachment: fixed;
             overflow: hidden;
