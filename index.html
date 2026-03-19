@@ -198,7 +198,10 @@
             align-items: center;
             position: relative;
             padding: clamp(100px, 15vh, 140px) var(--container-padding) clamp(40px, 8vh, 80px);
-            background: var(--gradient-soft);
+            background: 
+                linear-gradient(135deg, rgba(238, 242, 255, 0.95) 0%, rgba(250, 245, 255, 0.9) 100%),
+                url('https://i.ibb.co/4g0V2rsn/hero-bg.jpg') center/cover no-repeat;
+            background-attachment: fixed;
             overflow: hidden;
         }
         
@@ -1037,6 +1040,10 @@
         
         /* Mobile Navigation */
         @media (max-width: 767px) {
+            .hero {
+                background-attachment: scroll; /* Better mobile performance */
+            }
+            
             .nav-links {
                 position: fixed;
                 top: calc(clamp(12px, 2vw, 20px) * 2 + clamp(18px, 3vw, 24px) + 2px);
