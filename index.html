@@ -12,11 +12,10 @@
            CSS VARIABLES & RESET
         ============================================ */
         :root {
-            /* Light, vibrant color palette for software company */
+            /* Colors */
             --color-bg-primary: #ffffff;
             --color-bg-secondary: #f8f9fc;
             --color-bg-tertiary: #f0f2f7;
-            --color-bg-elevated: #ffffff;
             --color-accent-primary: #4f46e5;
             --color-accent-secondary: #7c3aed;
             --color-accent-light: #eef2ff;
@@ -26,24 +25,25 @@
             --color-border: rgba(15, 23, 42, 0.08);
             --color-border-hover: rgba(15, 23, 42, 0.15);
             
-            /* Premium gradients */
+            /* Gradients */
             --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             --gradient-soft: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
             
-            /* Typography */
+            /* Typography - Fluid sizing */
             --font-display: 'Outfit', -apple-system, system-ui, sans-serif;
             --font-mono: 'JetBrains Mono', 'Courier New', monospace;
             
-            /* Spacing */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2.5rem;
-            --space-xl: 4rem;
-            --space-2xl: 6rem;
-            --space-3xl: 8rem;
+            /* Spacing - Responsive */
+            --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+            --space-sm: clamp(0.5rem, 1vw, 1rem);
+            --space-md: clamp(1rem, 1.5vw, 1.5rem);
+            --space-lg: clamp(1.5rem, 2.5vw, 2.5rem);
+            --space-xl: clamp(2rem, 4vw, 4rem);
+            --space-2xl: clamp(3rem, 6vw, 6rem);
+            --space-3xl: clamp(4rem, 8vw, 8rem);
             
-            --section-padding: 100px;
+            --section-padding: clamp(60px, 10vw, 100px);
+            --container-padding: clamp(16px, 5vw, 64px);
             --container-max: 1280px;
             
             /* Shadows */
@@ -74,6 +74,7 @@
             color: var(--color-text-primary);
             line-height: 1.7;
             overflow-x: hidden;
+            font-size: clamp(14px, 1.5vw, 16px);
         }
         
         ::selection {
@@ -82,7 +83,7 @@
         }
         
         /* ============================================
-           NAVIGATION
+           NAVIGATION - Fully Responsive
         ============================================ */
         nav {
             position: fixed;
@@ -91,7 +92,7 @@
             right: 0;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px) saturate(180%);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--color-border);
             transition: all 0.4s var(--transition-smooth);
         }
@@ -104,25 +105,26 @@
         .nav-container {
             max-width: var(--container-max);
             margin: 0 auto;
-            padding: var(--space-md) var(--space-xl);
+            padding: clamp(12px, 2vw, 20px) var(--container-padding);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            font-size: 24px;
+            font-size: clamp(18px, 3vw, 24px);
             font-weight: 800;
             letter-spacing: -0.03em;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            white-space: nowrap;
         }
         
         .nav-links {
             display: flex;
-            gap: var(--space-xl);
+            gap: clamp(20px, 4vw, 40px);
             list-style: none;
             align-items: center;
         }
@@ -130,10 +132,11 @@
         .nav-links a {
             color: var(--color-text-secondary);
             text-decoration: none;
-            font-size: 15px;
+            font-size: clamp(13px, 1.2vw, 15px);
             font-weight: 600;
             transition: color 0.3s var(--transition-smooth);
             position: relative;
+            white-space: nowrap;
         }
         
         .nav-links a::after {
@@ -161,6 +164,9 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
         }
         
         .mobile-menu-toggle span {
@@ -172,14 +178,14 @@
         }
         
         /* ============================================
-           HERO SECTION
+           HERO SECTION - Responsive
         ============================================ */
         .hero {
-            min-height: 100vh;
+            min-height: clamp(600px, 100vh, 900px);
             display: flex;
             align-items: center;
             position: relative;
-            padding: 120px var(--space-xl) var(--space-xl);
+            padding: clamp(100px, 15vh, 140px) var(--container-padding) clamp(40px, 8vh, 80px);
             background: var(--gradient-soft);
             overflow: hidden;
         }
@@ -204,11 +210,12 @@
             background-image: 
                 linear-gradient(rgba(79, 70, 229, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(79, 70, 229, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+            background-size: clamp(30px, 5vw, 50px) clamp(30px, 5vw, 50px);
         }
         
         .hero-content {
             max-width: 1100px;
+            width: 100%;
             position: relative;
             z-index: 1;
         }
@@ -216,12 +223,12 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
+            gap: clamp(6px, 1vw, 8px);
+            padding: clamp(8px, 1.5vw, 10px) clamp(16px, 3vw, 24px);
             background: white;
             border: 1px solid var(--color-border);
             border-radius: 100px;
-            font-size: 14px;
+            font-size: clamp(12px, 1.4vw, 14px);
             font-weight: 600;
             color: var(--color-accent-primary);
             margin-bottom: var(--space-lg);
@@ -231,16 +238,17 @@
         
         .hero-badge::before {
             content: '✨';
-            font-size: 16px;
+            font-size: clamp(14px, 1.6vw, 16px);
         }
         
         .hero h1 {
-            font-size: clamp(48px, 8vw, 84px);
+            font-size: clamp(32px, 8vw, 84px);
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -0.04em;
             margin-bottom: var(--space-lg);
             animation: fadeSlideDown 0.8s var(--transition-smooth) 0.2s both;
+            word-wrap: break-word;
         }
         
         .hero h1 .gradient-text {
@@ -251,7 +259,7 @@
         }
         
         .hero-description {
-            font-size: clamp(18px, 2.5vw, 22px);
+            font-size: clamp(16px, 2vw, 22px);
             color: var(--color-text-secondary);
             max-width: 680px;
             line-height: 1.7;
@@ -279,11 +287,11 @@
         
         .hero-visual {
             position: absolute;
-            right: -100px;
+            right: -10%;
             top: 50%;
             transform: translateY(-50%);
-            width: 600px;
-            height: 600px;
+            width: clamp(300px, 50vw, 600px);
+            height: clamp(300px, 50vw, 600px);
             background: var(--gradient-primary);
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             opacity: 0.08;
@@ -300,21 +308,24 @@
         }
         
         /* ============================================
-           BUTTONS
+           BUTTONS - Fully Responsive
         ============================================ */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 16px 32px;
+            justify-content: center;
+            gap: clamp(6px, 1vw, 10px);
+            padding: clamp(12px, 2vw, 16px) clamp(20px, 4vw, 32px);
             font-family: var(--font-display);
-            font-size: 16px;
+            font-size: clamp(14px, 1.5vw, 16px);
             font-weight: 600;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: clamp(8px, 1.5vw, 12px);
             transition: all 0.3s var(--transition-smooth);
             cursor: pointer;
             border: none;
+            white-space: nowrap;
+            min-height: 44px; /* Touch-friendly */
         }
         
         .btn-primary {
@@ -326,6 +337,10 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
         }
         
         .btn-secondary {
@@ -340,26 +355,37 @@
             box-shadow: var(--shadow-md);
         }
         
+        .btn-white {
+            background: white;
+            color: var(--color-accent-primary);
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
         /* ============================================
-           SECTION STYLES
+           SECTION STYLES - Responsive
         ============================================ */
         section {
-            padding: var(--section-padding) var(--space-xl);
+            padding: var(--section-padding) var(--container-padding);
             position: relative;
         }
         
         .container {
             max-width: var(--container-max);
             margin: 0 auto;
+            width: 100%;
         }
         
         .section-header {
             text-align: center;
-            margin-bottom: var(--space-3xl);
+            margin-bottom: clamp(40px, 8vw, 80px);
         }
         
         .section-tag {
-            font-size: 14px;
+            font-size: clamp(12px, 1.4vw, 14px);
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -368,15 +394,16 @@
         }
         
         .section-title {
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: clamp(28px, 6vw, 56px);
             font-weight: 800;
             line-height: 1.2;
             letter-spacing: -0.03em;
             margin-bottom: var(--space-md);
+            word-wrap: break-word;
         }
         
         .section-description {
-            font-size: 19px;
+            font-size: clamp(16px, 2vw, 19px);
             color: var(--color-text-secondary);
             max-width: 640px;
             margin: 0 auto;
@@ -384,19 +411,19 @@
         }
         
         /* ============================================
-           STATS SECTION
+           STATS SECTION - Responsive Grid
         ============================================ */
         .stats {
             background: white;
             border-top: 1px solid var(--color-border);
             border-bottom: 1px solid var(--color-border);
-            padding: var(--space-2xl) var(--space-xl);
+            padding: clamp(40px, 6vw, 60px) var(--container-padding);
         }
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-xl);
+            grid-template-columns: repeat(auto-fit, minmax(clamp(120px, 25vw, 200px), 1fr));
+            gap: clamp(20px, 4vw, 40px);
             max-width: var(--container-max);
             margin: 0 auto;
         }
@@ -406,7 +433,7 @@
         }
         
         .stat-number {
-            font-size: 48px;
+            font-size: clamp(32px, 6vw, 48px);
             font-weight: 800;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -416,13 +443,13 @@
         }
         
         .stat-label {
-            font-size: 15px;
+            font-size: clamp(13px, 1.5vw, 15px);
             color: var(--color-text-secondary);
             font-weight: 500;
         }
         
         /* ============================================
-           SERVICES SECTION
+           SERVICES SECTION - Responsive Cards
         ============================================ */
         .services {
             background: var(--color-bg-secondary);
@@ -430,15 +457,15 @@
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: clamp(16px, 3vw, 24px);
         }
         
         .service-card {
-            padding: var(--space-xl);
+            padding: clamp(24px, 4vw, 32px);
             background: white;
             border: 1px solid var(--color-border);
-            border-radius: 16px;
+            border-radius: clamp(12px, 2vw, 16px);
             transition: all 0.4s var(--transition-smooth);
         }
         
@@ -449,19 +476,19 @@
         }
         
         .service-icon {
-            width: 64px;
-            height: 64px;
+            width: clamp(48px, 8vw, 64px);
+            height: clamp(48px, 8vw, 64px);
             background: var(--color-accent-light);
-            border-radius: 12px;
+            border-radius: clamp(8px, 1.5vw, 12px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: clamp(24px, 4vw, 30px);
             margin-bottom: var(--space-md);
         }
         
         .service-card h3 {
-            font-size: 24px;
+            font-size: clamp(18px, 3vw, 24px);
             font-weight: 700;
             margin-bottom: var(--space-md);
             letter-spacing: -0.02em;
@@ -471,6 +498,7 @@
             color: var(--color-text-secondary);
             margin-bottom: var(--space-md);
             line-height: 1.7;
+            font-size: clamp(14px, 1.6vw, 16px);
         }
         
         .service-features {
@@ -478,11 +506,12 @@
         }
         
         .service-features li {
-            padding: 8px 0;
+            padding: clamp(6px, 1vw, 8px) 0;
             color: var(--color-text-secondary);
-            font-size: 15px;
+            font-size: clamp(13px, 1.5vw, 15px);
             position: relative;
-            padding-left: 24px;
+            padding-left: clamp(20px, 3vw, 24px);
+            line-height: 1.6;
         }
         
         .service-features li::before {
@@ -494,7 +523,7 @@
         }
         
         /* ============================================
-           PORTFOLIO SECTION
+           PORTFOLIO SECTION - Responsive Layout
         ============================================ */
         .portfolio {
             background: white;
@@ -502,17 +531,17 @@
         
         .projects-grid {
             display: grid;
-            gap: var(--space-2xl);
+            gap: clamp(24px, 5vw, 48px);
         }
         
         .project-card {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: var(--space-2xl);
-            padding: var(--space-2xl);
+            grid-template-columns: 1fr;
+            gap: clamp(20px, 4vw, 32px);
+            padding: clamp(20px, 4vw, 32px);
             background: var(--color-bg-secondary);
             border: 1px solid var(--color-border);
-            border-radius: 20px;
+            border-radius: clamp(12px, 2.5vw, 20px);
             transition: all 0.4s var(--transition-smooth);
         }
         
@@ -521,19 +550,12 @@
             transform: translateY(-4px);
         }
         
-        .project-card:nth-child(even) {
-            grid-template-columns: 1fr 1.2fr;
-        }
-        
-        .project-card:nth-child(even) .project-image {
-            order: 2;
-        }
-        
         .project-image {
-            border-radius: 12px;
+            border-radius: clamp(8px, 1.5vw, 12px);
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            height: 400px;
+            height: clamp(200px, 40vw, 400px);
+            width: 100%;
             position: relative;
         }
         
@@ -549,7 +571,7 @@
         }
         
         .project-info h3 {
-            font-size: 32px;
+            font-size: clamp(20px, 4vw, 32px);
             font-weight: 700;
             margin-bottom: var(--space-md);
             letter-spacing: -0.02em;
@@ -559,22 +581,22 @@
             color: var(--color-text-secondary);
             margin-bottom: var(--space-lg);
             line-height: 1.8;
-            font-size: 16px;
+            font-size: clamp(14px, 1.6vw, 16px);
         }
         
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: clamp(6px, 1vw, 10px);
             margin-bottom: var(--space-lg);
         }
         
         .project-tag {
-            padding: 6px 16px;
+            padding: clamp(4px, 1vw, 6px) clamp(12px, 2vw, 16px);
             background: white;
             border: 1px solid var(--color-border);
-            border-radius: 8px;
-            font-size: 13px;
+            border-radius: clamp(6px, 1vw, 8px);
+            font-size: clamp(11px, 1.3vw, 13px);
             font-family: var(--font-mono);
             color: var(--color-accent-primary);
             font-weight: 500;
@@ -583,19 +605,20 @@
         .project-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: clamp(6px, 1vw, 8px);
             color: var(--color-accent-primary);
             font-weight: 600;
             text-decoration: none;
             transition: gap 0.3s var(--transition-smooth);
+            font-size: clamp(14px, 1.6vw, 16px);
         }
         
         .project-link:hover {
-            gap: 12px;
+            gap: clamp(10px, 1.5vw, 12px);
         }
         
         /* ============================================
-           TESTIMONIALS
+           TESTIMONIALS - Responsive Cards
         ============================================ */
         .testimonials {
             background: var(--color-bg-secondary);
@@ -603,15 +626,15 @@
         
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-lg);
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: clamp(16px, 3vw, 24px);
         }
         
         .testimonial-card {
-            padding: var(--space-xl);
+            padding: clamp(20px, 4vw, 32px);
             background: white;
             border: 1px solid var(--color-border);
-            border-radius: 16px;
+            border-radius: clamp(12px, 2vw, 16px);
             transition: all 0.3s var(--transition-smooth);
         }
         
@@ -622,7 +645,7 @@
         
         .testimonial-text {
             color: var(--color-text-secondary);
-            font-size: 16px;
+            font-size: clamp(14px, 1.6vw, 16px);
             line-height: 1.8;
             margin-bottom: var(--space-lg);
             font-style: italic;
@@ -635,31 +658,33 @@
         }
         
         .author-avatar {
-            width: 52px;
-            height: 52px;
+            width: clamp(44px, 7vw, 52px);
+            height: clamp(44px, 7vw, 52px);
+            min-width: 44px;
+            min-height: 44px;
             background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 18px;
+            font-size: clamp(16px, 2.5vw, 18px);
             color: white;
         }
         
         .author-info h4 {
-            font-size: 16px;
+            font-size: clamp(14px, 1.6vw, 16px);
             font-weight: 600;
             margin-bottom: 4px;
         }
         
         .author-info p {
-            font-size: 14px;
+            font-size: clamp(12px, 1.4vw, 14px);
             color: var(--color-text-tertiary);
         }
         
         /* ============================================
-           CTA SECTION
+           CTA SECTION - Responsive
         ============================================ */
         .cta-section {
             background: var(--gradient-primary);
@@ -668,14 +693,14 @@
         }
         
         .cta-content h2 {
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: clamp(28px, 6vw, 56px);
             font-weight: 800;
             margin-bottom: var(--space-md);
             letter-spacing: -0.03em;
         }
         
         .cta-content p {
-            font-size: 20px;
+            font-size: clamp(16px, 2.5vw, 20px);
             opacity: 0.9;
             margin-bottom: var(--space-xl);
             max-width: 600px;
@@ -683,18 +708,8 @@
             margin-right: auto;
         }
         
-        .btn-white {
-            background: white;
-            color: var(--color-accent-primary);
-        }
-        
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-        
         /* ============================================
-           CONTACT SECTION
+           CONTACT SECTION - Responsive
         ============================================ */
         .contact {
             background: var(--color-bg-secondary);
@@ -702,12 +717,12 @@
         
         .contact-content {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: var(--space-3xl);
+            grid-template-columns: 1fr;
+            gap: clamp(24px, 5vw, 48px);
         }
         
         .contact-info h3 {
-            font-size: 28px;
+            font-size: clamp(20px, 4vw, 28px);
             font-weight: 700;
             margin-bottom: var(--space-md);
         }
@@ -716,6 +731,7 @@
             color: var(--color-text-secondary);
             margin-bottom: var(--space-xl);
             line-height: 1.8;
+            font-size: clamp(14px, 1.6vw, 16px);
         }
         
         .contact-details {
@@ -731,7 +747,7 @@
             padding: var(--space-md);
             background: white;
             border: 1px solid var(--color-border);
-            border-radius: 12px;
+            border-radius: clamp(8px, 1.5vw, 12px);
             transition: all 0.3s var(--transition-smooth);
         }
         
@@ -741,18 +757,20 @@
         }
         
         .contact-item-icon {
-            width: 48px;
-            height: 48px;
+            width: clamp(40px, 6vw, 48px);
+            height: clamp(40px, 6vw, 48px);
+            min-width: 40px;
+            min-height: 40px;
             background: var(--color-accent-light);
-            border-radius: 10px;
+            border-radius: clamp(8px, 1.2vw, 10px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: clamp(18px, 2.5vw, 20px);
         }
         
         .contact-item-text h4 {
-            font-size: 13px;
+            font-size: clamp(11px, 1.3vw, 13px);
             color: var(--color-text-tertiary);
             margin-bottom: 4px;
             text-transform: uppercase;
@@ -761,17 +779,18 @@
         }
         
         .contact-item-text p {
-            font-size: 16px;
+            font-size: clamp(13px, 1.6vw, 16px);
             color: var(--color-text-primary);
             margin: 0;
             font-weight: 500;
+            word-break: break-all;
         }
         
         .contact-form {
             background: white;
-            padding: var(--space-xl);
+            padding: clamp(20px, 4vw, 32px);
             border: 1px solid var(--color-border);
-            border-radius: 16px;
+            border-radius: clamp(12px, 2vw, 16px);
             box-shadow: var(--shadow-sm);
         }
         
@@ -781,22 +800,22 @@
         
         .form-group label {
             display: block;
-            font-size: 15px;
+            font-size: clamp(13px, 1.5vw, 15px);
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: clamp(8px, 1.2vw, 10px);
             color: var(--color-text-primary);
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 14px 18px;
+            padding: clamp(12px, 2vw, 14px) clamp(14px, 2.5vw, 18px);
             background: var(--color-bg-secondary);
             border: 1.5px solid var(--color-border);
-            border-radius: 10px;
+            border-radius: clamp(8px, 1.2vw, 10px);
             color: var(--color-text-primary);
             font-family: var(--font-display);
-            font-size: 15px;
+            font-size: clamp(14px, 1.5vw, 15px);
             transition: all 0.3s var(--transition-smooth);
         }
         
@@ -809,23 +828,25 @@
         }
         
         .form-group textarea {
-            min-height: 140px;
+            min-height: clamp(120px, 20vw, 140px);
             resize: vertical;
         }
         
         /* ============================================
-           WHATSAPP BUTTON
+           WHATSAPP BUTTON - Touch Optimized
         ============================================ */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: clamp(16px, 3vw, 30px);
+            right: clamp(16px, 3vw, 30px);
             z-index: 999;
         }
         
         .whatsapp-button {
-            width: 60px;
-            height: 60px;
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
+            min-width: 50px;
+            min-height: 50px;
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             border-radius: 50%;
             display: flex;
@@ -837,31 +858,36 @@
             transition: all 0.3s var(--transition-smooth);
         }
         
+        .whatsapp-button svg {
+            width: clamp(28px, 5vw, 32px);
+            height: clamp(28px, 5vw, 32px);
+        }
+        
         .whatsapp-button:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
         }
         
         /* ============================================
-           FOOTER
+           FOOTER - Responsive
         ============================================ */
         footer {
             background: var(--color-text-primary);
             color: white;
-            padding: var(--space-2xl) var(--space-xl) var(--space-lg);
+            padding: clamp(40px, 6vw, 60px) var(--container-padding) clamp(24px, 4vw, 32px);
         }
         
         .footer-content {
             max-width: var(--container-max);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: var(--space-2xl);
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(24px, 5vw, 48px);
             margin-bottom: var(--space-xl);
         }
         
         .footer-brand h3 {
-            font-size: 28px;
+            font-size: clamp(20px, 4vw, 28px);
             font-weight: 800;
             margin-bottom: var(--space-md);
             background: linear-gradient(135deg, #eef2ff 0%, #c7d2fe 100%);
@@ -874,25 +900,30 @@
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
             margin-bottom: var(--space-md);
+            font-size: clamp(13px, 1.5vw, 15px);
         }
         
         .social-links {
             display: flex;
-            gap: 12px;
+            gap: clamp(8px, 1.5vw, 12px);
+            flex-wrap: wrap;
         }
         
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: clamp(36px, 5vw, 40px);
+            height: clamp(36px, 5vw, 40px);
+            min-width: 36px;
+            min-height: 36px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: clamp(8px, 1.2vw, 10px);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
             transition: all 0.3s var(--transition-smooth);
+            font-size: clamp(14px, 2vw, 16px);
         }
         
         .social-link:hover {
@@ -901,7 +932,7 @@
         }
         
         .footer-links h4 {
-            font-size: 16px;
+            font-size: clamp(14px, 1.8vw, 16px);
             font-weight: 600;
             margin-bottom: var(--space-md);
         }
@@ -911,13 +942,13 @@
         }
         
         .footer-links ul li {
-            margin-bottom: 12px;
+            margin-bottom: clamp(8px, 1.5vw, 12px);
         }
         
         .footer-links ul li a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-size: 15px;
+            font-size: clamp(13px, 1.5vw, 15px);
             transition: color 0.3s;
         }
         
@@ -932,57 +963,62 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
+            font-size: clamp(12px, 1.4vw, 14px);
         }
         
         /* ============================================
-           RESPONSIVE
+           RESPONSIVE BREAKPOINTS
         ============================================ */
-        @media (max-width: 1024px) {
-            .hero-visual {
-                display: none;
+        
+        /* Tablet & Desktop - Side by side layouts */
+        @media (min-width: 768px) {
+            .project-card {
+                grid-template-columns: 1.2fr 1fr;
             }
             
-            .project-card,
-            .project-card:nth-child(even),
-            .contact-content {
-                grid-template-columns: 1fr;
+            .project-card:nth-child(even) {
+                grid-template-columns: 1fr 1.2fr;
             }
             
             .project-card:nth-child(even) .project-image {
-                order: 0;
+                order: 2;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
+            .contact-content {
+                grid-template-columns: 1fr 1.5fr;
             }
         }
         
-        @media (max-width: 768px) {
-            :root {
-                --section-padding: 60px;
-            }
-            
+        /* Mobile Navigation */
+        @media (max-width: 767px) {
             .nav-links {
                 position: fixed;
-                top: 73px;
+                top: calc(clamp(12px, 2vw, 20px) * 2 + clamp(18px, 3vw, 24px) + 2px);
                 left: 0;
                 right: 0;
                 background: white;
                 flex-direction: column;
-                padding: var(--space-xl);
+                padding: var(--space-xl) var(--container-padding);
                 gap: var(--space-md);
-                transform: translateY(-100%);
+                transform: translateY(-150%);
                 opacity: 0;
                 pointer-events: none;
                 transition: all 0.4s var(--transition-smooth);
                 box-shadow: var(--shadow-lg);
+                align-items: stretch;
             }
             
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
                 pointer-events: all;
+            }
+            
+            .nav-links a {
+                text-align: center;
+                padding: 12px;
+                border-radius: 8px;
+                background: var(--color-bg-secondary);
             }
             
             .mobile-menu-toggle {
@@ -1001,13 +1037,38 @@
                 transform: rotate(-45deg) translate(6px, -6px);
             }
             
-            .project-image {
-                height: 250px;
+            .hero-visual {
+                display: none;
+            }
+        }
+        
+        /* Small mobile optimization */
+        @media (max-width: 480px) {
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
             }
             
-            .services-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+            .hero-cta .btn {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Very small screens */
+        @media (max-width: 360px) {
+            :root {
+                --container-padding: 12px;
+            }
+        }
+        
+        /* Large screens - max width optimization */
+        @media (min-width: 1440px) {
+            .hero-visual {
+                right: 5%;
             }
         }
     </style>
@@ -1025,11 +1086,11 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu-toggle" id="mobileToggle">
+            <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
     
@@ -1163,7 +1224,7 @@
             </div>
             
             <div class="projects-grid">
-                <!-- Project 1: CareBy HP Developments -->
+                <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="CareBy HP Project" id="project1">
@@ -1171,7 +1232,7 @@
                     <div class="project-info">
                         <h3>CareBy HP Developments</h3>
                         <p>
-                            A premium real estate and interior design showcase website featuring elegant galleries, project portfolios, and client testimonials. Built to highlight luxury home renovations and construction projects.
+                            A premium real estate and interior design showcase website featuring elegant galleries, project portfolios, and client testimonials.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">WordPress</span>
@@ -1185,7 +1246,7 @@
                     </div>
                 </div>
                 
-                <!-- Project 2: CareBy Supplies -->
+                <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="CareBy Supplies" id="project2">
@@ -1193,7 +1254,7 @@
                     <div class="project-info">
                         <h3>CareBy Supplies Marketplace</h3>
                         <p>
-                            Full-featured multi-vendor e-commerce platform connecting local suppliers with customers. Features include location-based search, product categories, comparison tools, and secure checkout.
+                            Full-featured multi-vendor e-commerce platform connecting local suppliers with customers. Features location-based search and secure checkout.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">WordPress</span>
@@ -1207,7 +1268,7 @@
                     </div>
                 </div>
                 
-                <!-- Project 3: Custom CRM -->
+                <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="CRM Platform" id="project3">
@@ -1215,7 +1276,7 @@
                     <div class="project-info">
                         <h3>Enterprise CRM System</h3>
                         <p>
-                            A comprehensive customer relationship management platform with lead tracking, pipeline management, automated workflows, and detailed analytics dashboard for sales teams.
+                            A comprehensive customer relationship management platform with lead tracking, pipeline management, and detailed analytics dashboard.
                         </p>
                         <div class="project-tags">
                             <span class="project-tag">React</span>
@@ -1246,7 +1307,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p class="testimonial-text">
-                        "Working with Codevera was exceptional. They transformed our vision into a beautiful, functional website that our customers love. The attention to detail and professional approach exceeded our expectations."
+                        "Working with Codevera was exceptional. They transformed our vision into a beautiful, functional website that our customers love. The attention to detail exceeded our expectations."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RS</div>
@@ -1272,7 +1333,7 @@
                 
                 <div class="testimonial-card">
                     <p class="testimonial-text">
-                        "Outstanding work on our CRM system. The automation has saved our team countless hours, and the intuitive interface made adoption incredibly smooth. Great communication throughout the project."
+                        "Outstanding work on our CRM system. The automation has saved our team countless hours, and the intuitive interface made adoption incredibly smooth."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AK</div>
@@ -1375,7 +1436,8 @@
     <div class="whatsapp-float">
         <a href="https://wa.me/919680739559?text=Hi%2C%20I%27m%20interested%20in%20your%20services" 
            target="_blank" 
-           class="whatsapp-button">
+           class="whatsapp-button"
+           aria-label="Chat on WhatsApp">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 0C7.164 0 0 7.164 0 16C0 18.832 0.736 21.488 2.02 23.796L0 32L8.416 30.016C10.656 31.144 13.248 31.8 16 31.8C24.836 31.8 32 24.636 32 15.8C32 7.064 24.836 0 16 0ZM16 29.2C13.536 29.2 11.216 28.548 9.204 27.392L8.72 27.104L3.76 28.44L5.12 23.624L4.796 23.116C3.524 20.984 2.8 18.56 2.8 16C2.8 8.716 8.716 2.8 16 2.8C23.284 2.8 29.2 8.716 29.2 16C29.2 23.284 23.284 29.2 16 29.2ZM23.26 19.52C22.9 19.34 21.14 18.48 20.8 18.36C20.46 18.24 20.22 18.18 19.98 18.54C19.74 18.9 19.06 19.7 18.86 19.94C18.66 20.18 18.46 20.2 18.1 20.02C17.74 19.84 16.56 19.46 15.18 18.24C14.08 17.28 13.34 16.1 13.14 15.74C12.94 15.38 13.12 15.18 13.3 15C13.46 14.84 13.66 14.58 13.84 14.38C14.02 14.18 14.08 14.04 14.2 13.8C14.32 13.56 14.26 13.36 14.16 13.18C14.06 13 13.34 11.24 13.04 10.52C12.74 9.82 12.44 9.92 12.22 9.92H11.56C11.32 9.92 10.96 10.02 10.62 10.38C10.28 10.74 9.36 11.6 9.36 13.36C9.36 15.12 10.66 16.82 10.84 17.06C11.02 17.3 13.34 20.88 16.88 22.44C17.7 22.8 18.34 23 18.84 23.12C19.66 23.38 20.42 23.34 21.02 23.24C21.68 23.12 23.12 22.46 23.42 21.74C23.72 21.02 23.72 20.4 23.62 20.24C23.52 20.08 23.62 19.7 23.26 19.52Z" fill="white"/>
             </svg>
@@ -1391,10 +1453,10 @@
                     Premium software development services for ambitious businesses. We build web applications, mobile apps, and AI solutions that drive real results.
                 </p>
                 <div class="social-links">
-                    <a href="#" class="social-link">𝕏</a>
-                    <a href="#" class="social-link">in</a>
-                    <a href="#" class="social-link">f</a>
-                    <a href="mailto:codeverasolutions@gmail.com" class="social-link">✉</a>
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Facebook">f</a>
+                    <a href="mailto:codeverasolutions@gmail.com" class="social-link" aria-label="Email">✉</a>
                 </div>
             </div>
             
@@ -1439,6 +1501,9 @@
             const img = document.getElementById(id);
             if (img) {
                 img.src = images[id];
+                img.onerror = function() {
+                    this.style.background = 'linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%)';
+                };
             }
         });
         
@@ -1469,6 +1534,14 @@
             });
         });
         
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+        
         // Contact form
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
@@ -1495,9 +1568,10 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 70;
+                    const navHeight = navbar.offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
                     window.scrollTo({
-                        top: offsetTop,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
