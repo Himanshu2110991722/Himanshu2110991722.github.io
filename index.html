@@ -112,6 +112,19 @@
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(8px, 1.5vw, 12px);
+            white-space: nowrap;
+        }
+        
+        .logo img {
+            height: clamp(32px, 5vw, 48px);
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .logo-text {
             font-size: clamp(18px, 3vw, 24px);
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -119,7 +132,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            white-space: nowrap;
         }
         
         .nav-links {
@@ -296,6 +308,40 @@
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             opacity: 0.08;
             animation: morph 8s ease-in-out infinite;
+        }
+        
+        .hero-logo-bg {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(250px, 40vw, 500px);
+            height: clamp(250px, 40vw, 500px);
+            opacity: 0.03;
+            animation: floatRotate 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .hero-logo-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%) brightness(0) invert(0.4);
+        }
+        
+        @keyframes floatRotate {
+            0%, 100% {
+                transform: translateY(-50%) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateY(-55%) rotate(5deg) scale(1.05);
+            }
+            50% {
+                transform: translateY(-50%) rotate(0deg) scale(1);
+            }
+            75% {
+                transform: translateY(-45%) rotate(-5deg) scale(0.95);
+            }
         }
         
         @keyframes morph {
@@ -1037,7 +1083,8 @@
                 transform: rotate(-45deg) translate(6px, -6px);
             }
             
-            .hero-visual {
+            .hero-visual,
+            .hero-logo-bg {
                 display: none;
             }
         }
@@ -1078,7 +1125,10 @@
     <!-- NAVIGATION -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">Codevera</div>
+            <div class="logo">
+                <img src="https://i.ibb.co/ymmWhYg0/logo.png" alt="Codevera Logo">
+                <span class="logo-text">Codevera</span>
+            </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -1099,6 +1149,9 @@
         <div class="hero-pattern"></div>
         <div class="hero-grid"></div>
         <div class="hero-visual"></div>
+        <div class="hero-logo-bg">
+            <img src="https://i.ibb.co/spz1DbBn/logo-bg.png" alt="Background Logo">
+        </div>
         <div class="hero-content">
             <div class="hero-badge">Transforming Ideas Into Reality</div>
             <h1>
