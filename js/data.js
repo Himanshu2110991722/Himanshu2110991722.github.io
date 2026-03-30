@@ -1,0 +1,413 @@
+/**
+ * data.js — Codevera Solutions
+ * ─────────────────────────────────────────────────────────────
+ * Single source of truth. Edit this file to update ALL pages.
+ * No HTML editing needed for content changes.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+// ─── SITE CONFIG ─────────────────────────────────────────────
+const SITE = {
+  name: 'Codevera',
+  tagline: 'Solutions',
+  email: 'codeverasolutions@gmail.com',
+  phone: '+91 9680739559',
+  whatsapp: '919680739559',
+  location: 'Delhi, India',
+  year: new Date().getFullYear(),
+  founder: 'Himanshu Shekhar',
+  razorpayKey: 'rzp_test_PLACEHOLDER', // Replace with live key
+};
+
+// ─── NAVIGATION ──────────────────────────────────────────────
+const NAV_LINKS = [
+  { label: 'Home',     href: 'index.html',    anchor: '#home' },
+  { label: 'Services', href: 'index.html',    anchor: '#services' },
+  { label: 'Work',     href: 'index.html',    anchor: '#work' },
+  { label: 'Products', href: 'products.html', anchor: '' },
+  { label: 'SaaS',     href: 'index.html',    anchor: '#saas' },
+  { label: 'Blog',     href: 'blog.html',     anchor: '' },
+  { label: 'Contact',  href: 'index.html',    anchor: '#contact' },
+];
+
+// ─── SERVICES ────────────────────────────────────────────────
+const SERVICES = [
+  {
+    icon: '🌐',
+    title: 'Web Development',
+    description: 'Full-stack web applications built with modern frameworks. From landing pages to complex SaaS platforms.',
+    features: ['React / Vue / Vanilla JS', 'Node.js / Python Backend', 'PostgreSQL / MongoDB', 'REST & GraphQL APIs'],
+  },
+  {
+    icon: '📱',
+    title: 'Mobile Apps',
+    description: 'Cross-platform mobile applications for iOS and Android that users actually enjoy using.',
+    features: ['React Native', 'Flutter', 'Native iOS & Android', 'App Store Deployment'],
+  },
+  {
+    icon: '🤖',
+    title: 'AI & Automation',
+    description: 'Intelligent systems, chatbots, and workflow automation that save time and cut operational costs.',
+    features: ['GPT / Claude Integration', 'Custom ML Models', 'Workflow Automation', 'Data Pipelines'],
+  },
+  {
+    icon: '⚙️',
+    title: 'Custom Software',
+    description: 'Tailored enterprise solutions — CRMs, ERPs, inventory systems, and anything in between.',
+    features: ['Business Process Analysis', 'Legacy Modernisation', 'System Integration', 'Ongoing Maintenance'],
+  },
+  {
+    icon: '🔌',
+    title: 'WordPress Plugins',
+    description: 'Premium, performance-optimised WordPress plugins for e-commerce, bookings, and business automation.',
+    features: ['WooCommerce Extensions', 'Custom Post Types', 'REST API Endpoints', 'Dokan / Multivendor'],
+  },
+  {
+    icon: '☁️',
+    title: 'Cloud & DevOps',
+    description: 'Scalable cloud architecture, CI/CD pipelines, and infrastructure that grows with your business.',
+    features: ['AWS / GCP / Azure', 'Docker & Kubernetes', 'GitHub Actions CI/CD', '24/7 Monitoring'],
+  },
+];
+
+// ─── PROJECTS ────────────────────────────────────────────────
+const PROJECTS = [
+  {
+    id: 'localfind',
+    title: 'LocalFind Marketplace',
+    category: 'SaaS',
+    description: 'Multi-vendor geo-location marketplace where users discover local vendors on an interactive map.',
+    longDescription: 'A full-featured marketplace platform built on WordPress + Dokan with custom LocalFind integration. Features real-time vendor mapping, product catalogues, WhatsApp ordering, and admin dashboards.',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
+    tags: ['WordPress', 'Dokan', 'PHP', 'Maps API', 'WooCommerce'],
+    link: '#contact',
+    featured: true,
+    year: 2024,
+  },
+  {
+    id: 'ecommerce-platform',
+    title: 'Artisan Crafts Store',
+    category: 'E-Commerce',
+    description: 'Custom e-commerce platform that doubled sales within 3 months of launch.',
+    longDescription: 'Bespoke WooCommerce store with custom checkout flow, automated inventory management, and WhatsApp order notifications.',
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80',
+    tags: ['WooCommerce', 'PHP', 'JavaScript', 'PayPal', 'Razorpay'],
+    link: '#contact',
+    featured: true,
+    year: 2024,
+  },
+  {
+    id: 'crm-system',
+    title: 'StartupHub CRM',
+    category: 'Enterprise',
+    description: 'Custom CRM with automation workflows that saved the team 20+ hours per week.',
+    longDescription: 'Enterprise CRM built from scratch with lead management, task automation, email sequences, and analytics dashboards.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
+    link: '#contact',
+    featured: true,
+    year: 2023,
+  },
+  {
+    id: 'ai-chatbot',
+    title: 'Support AI Assistant',
+    category: 'AI',
+    description: 'GPT-powered customer support chatbot handling 80% of queries automatically.',
+    longDescription: 'AI-driven support system with knowledge base ingestion, escalation logic, and CRM sync.',
+    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80',
+    tags: ['Python', 'GPT-4', 'FastAPI', 'React'],
+    link: '#contact',
+    featured: false,
+    year: 2024,
+  },
+];
+
+// ─── PRODUCTS ─────────────────────────────────────────────────
+const PRODUCTS = [
+  {
+    id: 'lf-catalogue',
+    slug: 'lf-catalogue',
+    name: 'LocalFind Multi-Vendor Catalogue',
+    category: 'Plugin',
+    badge: 'New',
+    tagline: 'Map unlimited vendors to any WooCommerce product',
+    description: 'A powerful WordPress plugin that lets admins create master product catalogues and map them to unlimited Dokan vendors. LocalFind displays every mapped vendor on an interactive map.',
+    price: 99,
+    originalPrice: null,
+    currency: '₹',
+    currencyCode: 'INR',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80',
+    screenshots: [
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
+    ],
+    features: [
+      'Master product catalogue dashboard',
+      'Unlimited vendor mapping per product',
+      'CSV / Excel bulk import',
+      'Auto-geocoding via LocalFind',
+      'LocalFind REST API bridge (priority override)',
+      'Admin-friendly product creation wizard',
+      'WooCommerce & Dokan compatible',
+      'PHP 7.4+ / WordPress 6.0+',
+    ],
+    tiers: [
+      { name: 'Single Site', price: 99, period: 'one-time', features: ['1 WordPress installation', '1 year support & updates', 'Email support'] },
+      { name: 'Developer', price: 249, period: 'one-time', features: ['Up to 5 sites', '1 year support & updates', 'Priority support', 'Source code access'], highlight: true },
+      { name: 'Agency', price: 499, period: 'one-time', features: ['Unlimited sites', 'Lifetime updates', 'Dedicated support', 'White-label ready'] },
+    ],
+    faq: [
+      { q: 'Does this require Dokan?', a: 'Yes — Dokan Free or Pro must be installed for vendor features. The plugin falls back gracefully if Dokan is absent.' },
+      { q: 'Is LocalFind plugin required?', a: 'LocalFind is recommended for full map functionality. The plugin includes a REST bridge that works with or without it.' },
+      { q: 'Can I import products from CSV?', a: 'Yes. The plugin supports CSV and Excel import for bulk product creation with vendor mapping.' },
+      { q: 'What support is included?', a: 'All licences include 12 months of email support and updates. Developer and Agency tiers get priority response.' },
+    ],
+    requirements: 'WordPress 6.0+, PHP 7.4+, WooCommerce 7.0+',
+    version: '1.0.0',
+    updated: 'March 2025',
+    downloads: '—',
+    rating: 5,
+  },
+  {
+    id: 'invoice-gen',
+    slug: 'invoice-gen',
+    name: 'Smart Invoice Generator',
+    category: 'Tools',
+    badge: 'Popular',
+    tagline: 'Generate GST-ready invoices in seconds',
+    description: 'A standalone web tool to create, customise, and download professional GST invoices. No login required. Works entirely in the browser.',
+    price: 49,
+    originalPrice: 79,
+    currency: '₹',
+    currencyCode: 'INR',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80',
+    screenshots: [
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+    ],
+    features: [
+      'GST-compliant invoice format',
+      'Custom logo & branding',
+      'PDF download (no server)',
+      'Client database (local storage)',
+      'Auto tax calculations',
+      'Recurring invoice templates',
+      'Multiple currency support',
+      'Zero backend — fully client-side',
+    ],
+    tiers: [
+      { name: 'Personal', price: 49, period: 'one-time', features: ['Single user', 'PDF export', 'Email support'] },
+      { name: 'Business', price: 149, period: 'one-time', features: ['Team of 5', 'White-label', 'Custom domain embed', 'Priority support'], highlight: true },
+    ],
+    faq: [
+      { q: 'Is my data safe?', a: 'All data stays in your browser. Nothing is sent to any server.' },
+      { q: 'Does it work offline?', a: 'Yes. Once loaded, the tool works fully offline.' },
+    ],
+    requirements: 'Modern browser (Chrome, Firefox, Edge, Safari)',
+    version: '2.1.0',
+    updated: 'February 2025',
+    downloads: '340+',
+    rating: 4.8,
+  },
+  {
+    id: 'leadsync',
+    slug: 'leadsync',
+    name: 'LeadSync CRM Widget',
+    category: 'SaaS',
+    badge: 'Beta',
+    tagline: 'Capture & track leads from any website',
+    description: 'Embeddable CRM widget that captures leads from your website, scores them automatically, and syncs with WhatsApp, Email, and Google Sheets.',
+    price: 0,
+    originalPrice: null,
+    currency: '₹',
+    currencyCode: 'INR',
+    image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80',
+    screenshots: [
+      'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80',
+    ],
+    features: [
+      'Embeddable contact widget',
+      'Automatic lead scoring',
+      'WhatsApp + Email notifications',
+      'Google Sheets sync',
+      'Budget & intent capture',
+      'Simple analytics dashboard',
+      'No-code setup (1 script tag)',
+    ],
+    tiers: [
+      { name: 'Starter', price: 0, period: 'month', features: ['50 leads/month', 'Email notifications', 'Basic analytics'] },
+      { name: 'Growth', price: 499, period: 'month', features: ['Unlimited leads', 'WhatsApp + Email', 'Google Sheets sync', 'Lead scoring'], highlight: true },
+      { name: 'Agency', price: 1499, period: 'month', features: ['Multi-client', 'Custom branding', 'API access', 'Dedicated support'] },
+    ],
+    faq: [
+      { q: 'Is there a free plan?', a: 'Yes — the Starter plan is free forever with 50 leads/month.' },
+      { q: 'How do I install it?', a: 'Copy one script tag into your HTML. Takes under 2 minutes.' },
+    ],
+    requirements: 'Any website. Add 1 script tag.',
+    version: '0.9.0 (Beta)',
+    updated: 'March 2025',
+    downloads: '—',
+    rating: null,
+  },
+];
+
+// ─── SAAS TOOLS ───────────────────────────────────────────────
+const SAAS_TOOLS = [
+  {
+    icon: '📋',
+    name: 'LeadSync',
+    tagline: 'Capture leads from any website',
+    description: 'Drop-in lead capture widget with automatic scoring, WhatsApp alerts, and Google Sheets sync. Zero-backend, no-code setup.',
+    price: 499,
+    currency: '₹',
+    period: 'month',
+    freeTrialDays: 14,
+    ctaLabel: 'Start Free Trial',
+    ctaHref: '#contact',
+    features: ['Embeddable widget', 'Lead scoring AI', 'WhatsApp + Email alerts', 'Google Sheets sync', 'Analytics dashboard'],
+    color: '#4f46e5',
+  },
+  {
+    icon: '🗺️',
+    name: 'VendorMap',
+    tagline: 'Show your vendors on a live map',
+    description: 'Hosted map widget for multi-vendor marketplaces. Integrates with WooCommerce, Dokan, and any REST API in under 10 minutes.',
+    price: 799,
+    currency: '₹',
+    period: 'month',
+    freeTrialDays: 14,
+    ctaLabel: 'Start Free Trial',
+    ctaHref: '#contact',
+    features: ['Embeddable map widget', 'Real-time vendor pins', 'Product-level filtering', 'Mobile responsive', 'White-label ready'],
+    color: '#0ea5e9',
+  },
+  {
+    icon: '🧾',
+    name: 'InvoicePro',
+    tagline: 'GST invoices in your browser',
+    description: 'Create, customise, and download professional GST invoices instantly. No server, no signup — works entirely client-side.',
+    price: 299,
+    currency: '₹',
+    period: 'month',
+    freeTrialDays: 30,
+    ctaLabel: 'Try Free for 30 Days',
+    ctaHref: '#contact',
+    features: ['GST-compliant templates', 'PDF export', 'Client database', 'Multi-currency', 'Team sharing'],
+    color: '#10b981',
+  },
+];
+
+// ─── TESTIMONIALS ─────────────────────────────────────────────
+const TESTIMONIALS = [
+  {
+    text: 'Working with Codevera was exceptional. They transformed our vision into a beautiful, functional platform. The attention to detail and professional approach exceeded all expectations.',
+    name: 'Rahul Sharma',
+    role: 'Sales Director',
+    company: 'TechCorp India',
+    initials: 'RS',
+    rating: 5,
+  },
+  {
+    text: "The e-commerce platform Codevera delivered completely transformed our business. Sales doubled within three months, and the system handles everything seamlessly. Highly recommended!",
+    name: 'Priya Mehta',
+    role: 'Founder',
+    company: 'Artisan Crafts',
+    initials: 'PM',
+    rating: 5,
+  },
+  {
+    text: "Outstanding work on our CRM. The automation has saved our team countless hours, and the intuitive interface made adoption incredibly smooth. Great communication throughout.",
+    name: 'Amit Kumar',
+    role: 'CTO',
+    company: 'StartupHub',
+    initials: 'AK',
+    rating: 5,
+  },
+  {
+    text: "The LocalFind plugin is exactly what we needed. Our vendors are visible on the map within minutes of setup. Support was responsive and the code quality is excellent.",
+    name: 'Deepak Verma',
+    role: 'Marketplace Owner',
+    company: 'LocalMart',
+    initials: 'DV',
+    rating: 5,
+  },
+];
+
+// ─── BLOG POSTS ───────────────────────────────────────────────
+const BLOG_POSTS = [
+  {
+    id: 'dokan-multi-vendor',
+    title: 'Building a Multi-Vendor Marketplace with Dokan & WooCommerce',
+    excerpt: 'A complete guide to setting up a production-ready multi-vendor marketplace with Dokan, including vendor onboarding, commission management, and map integration.',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
+    tags: ['WordPress', 'Dokan', 'WooCommerce'],
+    date: 'March 15, 2025',
+    readTime: '8 min read',
+    author: 'Himanshu Shekhar',
+    href: '#',
+  },
+  {
+    id: 'razorpay-integration',
+    title: 'Integrating Razorpay in WordPress Without a Plugin',
+    excerpt: 'Step-by-step tutorial on adding Razorpay payment gateway directly via custom PHP and JavaScript — no bloated plugins required.',
+    image: 'https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=800&q=80',
+    tags: ['Razorpay', 'PHP', 'Payments'],
+    date: 'February 28, 2025',
+    readTime: '6 min read',
+    author: 'Himanshu Shekhar',
+    href: '#',
+  },
+  {
+    id: 'react-saas',
+    title: 'From Freelance to SaaS: Productising Your Service Skills',
+    excerpt: "How we turned a custom CRM project into a reusable SaaS product — the mindset shift, tech decisions, and pricing strategy that made it work.",
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+    tags: ['SaaS', 'Business', 'Strategy'],
+    date: 'February 10, 2025',
+    readTime: '5 min read',
+    author: 'Himanshu Shekhar',
+    href: '#',
+  },
+  {
+    id: 'gpt-wordpress',
+    title: 'Adding GPT-4 to WordPress: A Practical Guide',
+    excerpt: 'Integrate OpenAI directly into WordPress themes and plugins. Covers streaming responses, rate limiting, and keeping API keys secure.',
+    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80',
+    tags: ['AI', 'GPT-4', 'WordPress'],
+    date: 'January 20, 2025',
+    readTime: '10 min read',
+    author: 'Himanshu Shekhar',
+    href: '#',
+  },
+  {
+    id: 'cicd-wordpress',
+    title: 'CI/CD for WordPress with GitHub Actions',
+    excerpt: 'Automate plugin testing, deployment, and versioning using GitHub Actions. A practical workflow for solo developers and small teams.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
+    tags: ['DevOps', 'GitHub', 'WordPress'],
+    date: 'January 5, 2025',
+    readTime: '7 min read',
+    author: 'Himanshu Shekhar',
+    href: '#',
+  },
+  {
+    id: 'freelance-pricing',
+    title: 'How to Price Your Freelance Projects in India (2025)',
+    excerpt: 'A data-driven approach to pricing web development projects in India. Includes rate benchmarks, proposal templates, and negotiation tactics.',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
+    tags: ['Freelance', 'Business', 'Pricing'],
+    date: 'December 18, 2024',
+    readTime: '6 min read',
+    author: 'Himanshu Shekhar',
+    href: '#',
+  },
+];
+
+// ─── STATS ────────────────────────────────────────────────────
+const STATS = [
+  { number: '10+', label: 'Projects Shipped' },
+  { number: '100%', label: 'Client Satisfaction' },
+  { number: '3', label: 'Products Live' },
+  { number: '24/7', label: 'Support Available' },
+];

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Codevera Solutions — Premium web development, WordPress plugins, SaaS tools, and custom software for ambitious businesses.">
+  <title>Codevera Solutions — Premium Software Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV (rendered by JS) -->
+<nav id="navbar"></nav>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">✨ Now shipping SaaS products</div>
+      <h1>We build software<br>that <span class="gradient-text">scales</span></h1>
+      <p class="hero-desc">
+        From custom web apps to WordPress plugins and hosted SaaS tools —
+        Codevera Solutions turns your ideas into production-grade products.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary btn-lg">Start a Project</a>
+        <a href="products.html" class="btn btn-secondary btn-lg">Browse Products</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card">
+        <pre class="hero-code"><span class="kw">const</span> <span class="fn">build</span> = <span class="kw">async</span> (idea) =&gt; {
+  <span class="kw">const</span> product = <span class="kw">await</span> <span class="fn">design</span>(idea)
+  <span class="kw">const</span> app     = <span class="kw">await</span> <span class="fn">develop</span>(product)
+  <span class="kw">const</span> revenue = <span class="kw">await</span> <span class="fn">launch</span>(app)
+  <span class="kw">return</span> { <span class="str">status</span>: <span class="str">"shipped"</span>, revenue }
+}
+
+<span class="fn">build</span>(<span class="str">"your next product"</span>)</pre>
+
+        <div class="hero-metrics">
+          <div class="hero-metric"><strong>10+</strong><span>Projects shipped</span></div>
+          <div class="hero-metric"><strong>3</strong><span>Products live</span></div>
+          <div class="hero-metric"><strong>100%</strong><span>Satisfaction</span></div>
+          <div class="hero-metric"><strong>24/7</strong><span>Support</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ──────────────────────────────────────────────── -->
+<div class="stats-bar">
+  <div id="stats-grid" class="container"></div>
+</div>
+
+<!-- ── SERVICES ───────────────────────────────────────────── -->
+<section class="section-pad" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Services</div>
+      <h2 class="section-title">What We Build</h2>
+      <p class="section-desc">End-to-end development from idea to production — web, mobile, AI, and everything in between.</p>
+    </div>
+    <div id="services-grid" class="services-grid"></div>
+  </div>
+</section>
+
+<!-- ── WORK ───────────────────────────────────────────────── -->
+<section class="section-pad" id="work" style="background:var(--c-bg-2)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Work</div>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-desc">A selection of projects that shipped on time, on budget, and exceeded client expectations.</p>
+    </div>
+    <div id="project-filters" class="filter-bar"></div>
+    <div id="projects-grid" class="projects-grid"></div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────────────────── -->
+<section class="section-pad" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Testimonials</div>
+      <h2 class="section-title">Client Success Stories</h2>
+      <p class="section-desc">What our clients say after working with us.</p>
+    </div>
+    <div id="testimonials-grid" class="testimonials-grid"></div>
+  </div>
+</section>
+
+<!-- ── SAAS ───────────────────────────────────────────────── -->
+<section class="section-pad" id="saas">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">SaaS Tools</div>
+      <h2 class="section-title">Hosted Products</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,.55)">Subscription tools built by Codevera — ready to embed in your business today.</p>
+    </div>
+    <div id="saas-grid" class="saas-grid"></div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ───────────────────────────────────────────── -->
+<div class="cta-band">
+  <div class="container" style="position:relative;z-index:1">
+    <h2>Ready to Build Something?</h2>
+    <p>Tell us about your project and get a free estimate within 24 hours.</p>
+    <a href="#contact" class="btn btn-white btn-lg">Get a Free Quote</a>
+  </div>
+</div>
+
+<!-- ── BLOG PREVIEW ───────────────────────────────────────── -->
+<section class="section-pad" id="blog">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Blog</div>
+      <h2 class="section-title">From the Workshop</h2>
+      <p class="section-desc">Tutorials, insights, and behind-the-scenes from our team.</p>
+    </div>
+    <div id="blog-grid" class="blog-grid"></div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="blog.html" class="btn btn-secondary">View All Posts →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────────────────── -->
+<section class="section-pad" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Contact</div>
+      <h2 class="section-title">Let's Talk</h2>
+      <p class="section-desc">Have a project in mind? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info -->
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p>Whether you need a new product built from scratch or want to improve an existing one, we're here to help.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-text">
+              <h4>Email</h4>
+              <p><a href="mailto:codeverasolutions@gmail.com">codeverasolutions@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📱</div>
+            <div class="contact-item-text">
+              <h4>Phone / WhatsApp</h4>
+              <p>+91 9680739559</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🌍</div>
+            <div class="contact-item-text">
+              <h4>Location</h4>
+              <p>Delhi, India — available worldwide</p>
+            </div>
+          </div>
+        </div>
+        <a href="https://wa.me/919680739559?text=Hi%2C%20I%27m%20interested%20in%20your%20services"
+           target="_blank" class="contact-wa-btn">
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.164 0 0 7.164 0 16c0 2.832.736 5.488 2.02 7.796L0 32l8.416-1.984C10.656 31.144 13.248 31.8 16 31.8c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.2c-2.464 0-4.784-.652-6.796-1.808l-.484-.288-4.96 1.336 1.36-4.816-.324-.508C3.524 20.984 2.8 18.56 2.8 16 2.8 8.716 8.716 2.8 16 2.8S29.2 8.716 29.2 16 23.284 29.2 16 29.2z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-card">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Rahul Sharma">
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="rahul@company.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed *</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service…</option>
+                <option>Web Development</option>
+                <option>Mobile App</option>
+                <option>WordPress Plugin</option>
+                <option>SaaS / Product</option>
+                <option>AI & Automation</option>
+                <option>Custom Software</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="">Select a budget…</option>
+              <option>Under ₹25,000</option>
+              <option>₹25,000 – ₹75,000</option>
+              <option>₹75,000 – ₹2,00,000</option>
+              <option>₹2,00,000 – ₹5,00,000</option>
+              <option>₹5,00,000+</option>
+              <option>Let's discuss</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Us About Your Project *</label>
+            <textarea id="message" name="message" required placeholder="Describe your project, goals, timeline, and any technical requirements…"></textarea>
+          </div>
+
+          <div class="form-group" style="margin-bottom:0">
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:500">
+              <input type="checkbox" id="whatsapp" name="whatsapp" value="yes" style="width:auto;accent-color:var(--c-accent)">
+              Send via WhatsApp instead of email
+            </label>
+          </div>
+
+          <div style="margin-top:24px">
+            <button type="submit" class="btn btn-primary btn-full btn-lg">Send Message →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<div id="whatsapp-float"></div>
+
+<!-- FOOTER -->
+<footer id="site-footer"></footer>
+
+<!-- SCRIPTS (order matters) -->
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+<!-- Razorpay (load only when needed in production) -->
+<!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+</body>
+</html>
